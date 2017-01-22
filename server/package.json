@@ -1,0 +1,35 @@
+{
+  "name": "wePa_server",
+  "version": "0.0.1",
+  "description": "we pa! server",
+  "scripts": {
+    "start": "node ./bin/www.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "debug": "^2.6.0",
+    "express": "^4.14.0",
+    "fs-extra": "^1.0.0",
+    "jsonwebtoken": "^7.2.1",
+    "moment": "^2.17.1",
+    "mongoose": "^4.7.6",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "pug": "^2.0.0-beta6",
+    "redis": "^2.6.5",
+    "request": "^2.79.0",
+    "validator": "^6.2.0"
+  },
+  "devDependencies": {
+    "standard": "^8.6.0"
+  }
+}

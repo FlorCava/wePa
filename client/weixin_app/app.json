@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/me/info/info",
+    "pages/me/info/name/name",
+    "pages/me/info/tel/tel",
+    "pages/me/info/email/email",
+    "pages/activity/start/start",
+    "pages/activity/start/manage/manage",
+    "pages/activity/activity",
+    "pages/activity/myStart/myStart",
+    "pages/activity/myJoin/myJoin"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#EDB400",
+    "navigationBarTitleText": "We Pa!",
+    "navigationBarTextStyle": "white"
+  }
+}

@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </view>
+  <view class="weui-cells__title">个人信息</view>
+    <view class="weui-cells weui-cells_after-title">
+        <navigator url="name/name" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__bd">昵称 <text>{{userInfo.name}}</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">修改</view>
+        </navigator>
+        <navigator url="tel/tel" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__bd">手机 <text>{{userInfo.tel}}</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">修改</view>
+        </navigator>
+        <navigator url="email/email" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__bd">邮箱 <text>{{userInfo.email}}</text></view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">修改</view>
+        </navigator>
+    </view>
+</view>

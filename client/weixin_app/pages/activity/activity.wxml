@@ -1,0 +1,74 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+          <view id="{{index}}" class="weui-navbar__item {{tabActiveIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="bindTabs">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{tabSliderLeft}}px; transform: translateX({{tabSliderOffset}}px); -webkit-transform: translateX({{tabSliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{tabActiveIndex != 0}}">
+          <view class="weui-panel">
+            <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_text weui-media-box_padding">
+                <view>
+                  <image src="{{activity.image}}" style="width:750rpx;" mode="aspectFill" />
+                </view>
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{activity.title}}</view>
+                <view class="weui-media-box__desc">已经有{{activity.join.count}}人参与
+                </view>
+                <view class="weui-media-box__desc">活动时间 {{activity.start.date}} {{activity.start.time}} - {{activity.end.date}} {{activity.end.time}}
+                </view>
+                <view class="weui-media-box__desc">地址
+                  <view class="weui-vcode-btn" bindtap="bindOpenLocation">查看地址</view>
+                </view>
+                <view class="weui-media-box__desc">
+                  <text>{{activity.location.name}}</text>
+                  <text>\n{{activity.location.address}}</text>
+                </view>
+                <view wx:if="{{activity.count > 0}}">
+                  <view class="weui-media-box__desc">
+                    限制人数 {{activity.count}}
+                  </view>
+                </view>
+                <view class="weui-media-box__desc">
+                  活动说明
+                  <text>{{activity.description}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-footer" hidden="{{tabActiveIndex != 0}}">
+            <view class="weui-footer__links" style="text-align:right;">
+              <navigator open-type="redirect" url="/pages/activity/start/start" class="weui-footer__link">创建我的活动</navigator>
+            </view>
+            <view class="weui-btn-area ">
+              <button class="weui-btn" type="primary" disabled="{{activity.me.joined}}" bindtap="bindJoinButton">
+                <view wx:if="{{activity.me.joined}}">已经参加</view>
+                <view wx:else>立即参加</view>
+              </button>
+            </view>
+
+            <!--<view class="weui-footer__text">点击右上角分享活动</view>-->
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{tabActiveIndex != 1}}">
+          <view>已经有{{activity.join.check_in_count}}人签到
+          </view>
+          <view class="weui-footer" hidden="{{tabActiveIndex != 1}}">
+            <view class="weui-btn-area">
+              <button class="weui-btn" type="primary" disabled="{{activity.me.checked}}" bindtap="bindScanCheckInButton">
+                <view wx:if="{{activity.me.checked}}">已经签到</view>
+                <view wx:else>扫码签到</view>
+              </button>
+            </view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{tabActiveIndex != 2}}">选项三的内容</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,103 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+    <view class="weui-cells__title">标题</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" value="{{activity.title}}" placeholder="请输入活动标题" bindinput="bindTitleChange" />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">地址
+      <view class="weui-vcode-btn" bindtap="bindChooseLocation">选择地址</view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" value="{{activity.location.name}}" placeholder="请输入活动地址名称" style="height: 2em" bindinput="bindLocationNameChange" />
+          <textarea class="weui-textarea" value="{{activity.location.address}}" placeholder="请输入活动地址详情" style="height: 2em" bindinput="bindLocationAddressChange" />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">开始时间</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label_small">日期</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{activity.start.date}}" bindchange="bindStartDateChange">
+            <view class="weui-input">{{activity.start.date}}</view>
+          </picker>
+        </view>
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label_small">时间</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="time" value="{{activity.start.time}}" bindchange="bindStartTimeChange">
+            <view class="weui-input">{{activity.start.time}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">结束时间</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label_small">日期</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{activity.end.date}}" bindchange="bindEndDateChange">
+            <view class="weui-input">{{activity.end.date}}</view>
+          </picker>
+        </view>
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label_small">时间</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="time" value="{{activity.end.time}}" bindchange="bindEndTimeChange">
+            <view class="weui-input">{{activity.end.time}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">上传海报</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader__input-box" style="margin-top:9px;">
+            <view class="weui-uploader__input" bindtap="bindChooseImage"></view>
+          </view>
+          <view class="weui-uploader__files" style="margin-top:9px;">
+            <view class="weui-uploader__file" bindtap="bindPreviewImage">
+              <image class="weui-uploader__img" src="{{tempImage}}" mode="aspectFill" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">限制人数
+      <switch checked="{{limitCount}}" bindchange="bindLimitCountChange" />
+    </view>
+    <view class="weui-cells weui-cells_after-title ">
+      <view class="weui-cell ">
+        <view class="weui-cell__bd">
+          <input class="weui-input" value="{{activity.count}}" disabled="{{!limitCount}}" bindinput="bindCountChange" />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title ">说明</view>
+    <view class="weui-cells weui-cells_after-title ">
+      <view class="weui-cell ">
+        <view class="weui-cell__bd ">
+          <textarea class="weui-textarea " value="{{activity.description}}" placeholder="请输入活动说明 " style="height: 3.3em " bindinput="bindDescriptionChange" />
+          <view class="weui-textarea-counter">0/1000</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-btn-area ">
+      <button class="weui-btn" type="primary" bindtap="bindSaveButton">确定</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,86 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+          <view id="{{index}}" class="weui-navbar__item {{tabActiveIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="bindTabs">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{tabSliderLeft}}px; transform: translateX({{tabSliderOffset}}px); -webkit-transform: translateX({{tabSliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{tabActiveIndex != 0}}">
+          <view class="weui-panel">
+            <view class="weui-panel__bd">
+              <view class="weui-media-box weui-media-box_text weui-media-box_padding">
+                <view>
+                  <image src="{{activity.image}}" style="width:750rpx;" mode="aspectFill" />
+                </view>
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{activity.title}}</view>
+                <view class="weui-media-box__desc">已经有{{activity.join.count}}人参与
+                </view>
+                <view class="weui-media-box__desc">活动时间 {{activity.start.date}} {{activity.start.time}} - {{activity.end.date}} {{activity.end.time}}
+                </view>
+                <view class="weui-media-box__desc">地址
+                  <view class="weui-vcode-btn" bindtap="bindOpenLocation">查看地址</view>
+                </view>
+                <view class="weui-media-box__desc">
+                  <text>{{activity.location.name}}</text>
+                  <text>\n{{activity.location.address}}</text>
+                </view>
+                <view wx:if="{{activity.count > 0}}">
+                  <view class="weui-media-box__desc">
+                    限制人数 {{activity.count}}
+                  </view>
+                </view>
+                <view class="weui-media-box__desc">
+                  活动说明
+                  <text>{{activity.description}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-footer weui-footer_fixed-bottom" hidden="{{tabActiveIndex != 0}}">
+            <view class="weui-btn-area ">
+              <button class="weui-btn" type="primary" bindtap="bindShareButton">分享活动</button>
+            </view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{tabActiveIndex != 1}}">
+          <view class="weui-cells__title">活动控制
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">
+                <radio-group class="weui-flex" bindchange="bindStatusChange">
+                  <view class="weui-flex__item">
+                    <radio value="0" disabled="true" />创建 </view>
+                  <view class="weui-flex__item">
+                    <radio value="1" checked="{{activity.status === '1'}}" />推广</view>
+                  <view class="weui-flex__item">
+                    <radio value="2" checked="{{activity.status === '2'}}" />开始</view>
+                  <view class="weui-flex__item">
+                    <radio value="3" checked="{{activity.status === '3'}}" />结束</view>
+                </radio-group>
+                <slider step="1" max="3" value="{{activity.status}}" bindchange="bindStatusSliderChange" />
+              </view>
+            </view>
+          </view>
+          <view class="weui-cells__title">二维码（用于活动现场签到）
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">
+                <button class="weui-btn" type="primary" disabled="{{activity.qr_code_url !== ''}}" bindtap="bindCreateQrCodeButton">生成活动二维码</button>
+                <view style="margin-top:9px;">
+                  <image class="weui-uploader__img" src="{{activity.qr_code_url}}" mode="aspectFill" bindtap="bindPreviewImage" />
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+/* pages/activity/start/start.wxss */
+.weui-label_small {
+  width: 50px;
+}

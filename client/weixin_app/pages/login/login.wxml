@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="page__title weui-cell_link">
+      <button class="weui-btn" type="primary" disabled="{{login}}" loading="{{login}}" bindtap="bindLoginButton">
+        <view wx:if="{{login}}">登陆成功，跳转中...</view>
+        <view wx:else>授权登陆</view>
+      </button>
+    </view>
+  </view>
+</view>

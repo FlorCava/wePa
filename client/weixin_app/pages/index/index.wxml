@@ -1,0 +1,63 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title weui-cell_link" style="text-align:center;">
+      <navigator url="/pages/activity/start/start">
+        创建我的活动
+      </navigator>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">我参加的活动</view>
+      <view class="weui-panel__bd">
+        <block wx:for="{{activityJoin}}" wx:for-item="activity" wx:key="activity_id">
+          <navigator url="/pages/activity/activity?activity_id={{activity.activity_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{activity.image}}" mode="aspectFill" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">
+                {{activity.title}}
+              </view>
+              <view class="weui-media-box__desc">{{activity.start.date}} {{activity.start.time}} - {{activity.end.date}} {{activity.end.time}}</view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+      <view class="weui-panel__ft">
+        <view class="weui-cell weui-cell_access weui-cell_link">
+          <view class="weui-cell__bd">
+            <navigator url="/pages/activity/myJoin/myJoin">查看更多</navigator>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">我创建的活动</view>
+      <view class="weui-panel__bd">
+        <block wx:for="{{activityStart}}" wx:for-item="activity" wx:key="activity_id">
+          <navigator url="/pages/activity/start/manage/manage?activity_id={{activity.activity_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{activity.image}}" mode="aspectFill" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">
+                {{activity.title}}
+              </view>
+              <view class="weui-media-box__desc">{{activity.start.date}} {{activity.start.time}} - {{activity.end.date}} {{activity.end.time}}</view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+      <view class="weui-panel__ft">
+        <view class="weui-cell weui-cell_access weui-cell_link">
+          <view class="weui-cell__bd">
+            <navigator url="/pages/activity/myStart/myStart">查看更多</navigator>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

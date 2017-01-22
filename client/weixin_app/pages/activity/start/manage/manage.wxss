@@ -1,0 +1,5 @@
+/* pages/activity/start/manage/manage.wxss */
+
+.weui-media-box_padding {
+  padding: 0px;
+}

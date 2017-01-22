@@ -1,0 +1,14 @@
+<view class="weui-cells__title">个人信息</view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">昵称</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" value="{{userInfo.name}}" placeholder="请输入昵称" bindinput="bindNameChange"/>
+        </view>
+    </view>
+</view>
+<view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="bindSaveButton">确定</button>
+</view>
